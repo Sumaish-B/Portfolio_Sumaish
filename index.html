@@ -30,7 +30,13 @@ header.top nav a.cta{background:var(--blue);color:var(--black);padding:8px 18px;
 .hero::after{content:"";position:absolute;right:-140px;top:-120px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(168,218,255,.28),rgba(168,218,255,0) 68%);pointer-events:none}
 .hero .wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:56px;align-items:center;position:relative;z-index:1}
 .pill{display:inline-block;background:#10202e;color:var(--blue);border:1px solid #1f3a52;padding:6px 14px;border-radius:999px;font-size:14px;margin-bottom:24px}
-.hero h1{font-size:clamp(40px,6.4vw,74px);font-weight:800;color:var(--white)}
+.hero h1.name{font-size:clamp(48px,9.5vw,112px);font-weight:800;color:var(--white);letter-spacing:-.04em;line-height:1}
+.hero h2.tagline{font-size:clamp(24px,3.4vw,38px);font-weight:700;color:var(--white);margin-top:20px;line-height:1.2}
+.name .ch{display:inline-block;animation:pop .8s cubic-bezier(.2,.9,.3,1.4) both,wave 4s ease-in-out infinite;animation-delay:calc(var(--i)*70ms + 150ms),calc(var(--i)*110ms + 1.6s)}
+.name .sp{display:inline-block;width:.28em}
+.name .last{color:var(--blue);text-shadow:0 0 40px rgba(168,218,255,.55)}
+@keyframes pop{from{opacity:0;transform:translateY(60px) rotate(8deg) scale(.6)}to{opacity:1;transform:none}}
+@keyframes wave{0%,55%,100%{transform:none}25%{transform:translateY(-10px)}}
 .hero h1 em{font-style:normal;color:var(--blue)}
 .hero p{color:var(--mutedark);font-size:19px;max-width:50ch;margin:24px 0 34px}
 .btns{display:flex;gap:12px;flex-wrap:wrap}
@@ -72,7 +78,6 @@ section{padding:88px 0}
 .contact{background:var(--blue);text-align:left}
 .contact .h2{font-size:clamp(34px,5.6vw,64px);max-width:16ch}
 .contact p{max-width:50ch;margin:0 0 28px;color:#1b2b3a;font-size:19px}
-.mail{display:inline-block;font:800 clamp(20px,3.6vw,34px) Sora,sans-serif;text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:6px;word-break:break-all;margin-bottom:30px}
 footer{background:var(--black);color:var(--mutedark);padding:28px 0;font-size:14px}
 footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 @media (max-width:860px){
@@ -83,7 +88,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .progress{position:fixed;top:env(safe-area-inset-top,0px);left:0;height:3px;width:100%;background:linear-gradient(90deg,var(--mid),var(--blue));transform:scaleX(0);transform-origin:left;z-index:40}
 @keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
 .hero .pill,.hero h1,.hero p,.hero .btns{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
-.hero h1{animation-delay:.12s}.hero p{animation-delay:.24s}.hero .btns{animation-delay:.36s}
+.hero h1{animation-delay:0s}.hero h2.tagline{animation:rise .8s .8s cubic-bezier(.2,.7,.2,1) both}.hero p{animation-delay:1s}.hero .btns{animation-delay:1.15s}
 .rot{display:inline-block;background:linear-gradient(90deg,#A8DAFF,#fff,#4FB0F5,#A8DAFF);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:shine 5s linear infinite;transition:opacity .35s,transform .35s}
 .rot.out{opacity:0;transform:translateY(12px)}
 @keyframes shine{to{background-position:300% 0}}
@@ -122,7 +127,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <div class="hero"><div class="wrap">
   <div>
     <span class="pill">Product & Marketing Manager · Bengaluru</span>
-    <h1>I turn learner interest into <em class="rot" id="rot">enrolments</em> and teams into results.</h1>
+    <h1 class="name" id="name">Sumaish B</h1>
+    <h2 class="tagline">I turn learner interest into <em class="rot" id="rot">enrolments</em> and teams into results.</h2>
     <p>Nearly 4 years in EdTech across lead generation, sales, team leadership and campus recruiting. Today I shape product positioning and go-to-market at Edu Tantr.</p>
     <div class="btns"><a class="btn p" href="#contact">Get in touch</a><a class="btn o" href="#experience">View experience</a></div>
   </div>
@@ -217,9 +223,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <section id="contact" class="contact"><div class="wrap">
   <h2 class="h2">Let’s work together.</h2>
   <p>Open to conversations about product, marketing and EdTech growth.</p>
-  <a class="mail" href="mailto:sumishrono4499@gmail.com">sumishrono4499@gmail.com</a>
   <div class="btns">
-    <a class="btn d" href="https://linkedin.com/in/sumaish-b-474278265">LinkedIn</a>
+    <a class="btn d" href="mailto:sumishrono4499@gmail.com">Email me</a>
+    <a class="btn o" style="color:var(--black);border-color:var(--black)" href="https://linkedin.com/in/sumaish-b-474278265">LinkedIn</a>
     <a class="btn o" style="color:var(--black);border-color:var(--black)" href="tel:+919900371994">+91 99003 71994</a>
     <a class="btn o" style="color:var(--black);border-color:var(--black)" href="tel:+919384295277">+91 93842 95277</a>
   </div>
@@ -230,6 +236,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <script>
 (function(){
 var rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+var nm=document.getElementById('name');if(nm){var tx=nm.textContent;nm.setAttribute('aria-label',tx);nm.textContent='';var k=0;tx.split('').forEach(function(c,idx){var s=document.createElement('span');s.setAttribute('aria-hidden','true');if(c===' '){s.className='sp'}else{s.className='ch'+(idx===tx.length-1?' last':'');s.style.setProperty('--i',k++);s.textContent=c}nm.appendChild(s)})}
 var prog=document.querySelector('.progress');
 function onS(){var h=document.documentElement,m=h.scrollHeight-h.clientHeight;prog.style.transform='scaleX('+(m>0?h.scrollTop/m:0)+')'}
 addEventListener('scroll',onS,{passive:true});onS();
